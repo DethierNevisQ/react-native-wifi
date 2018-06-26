@@ -57,9 +57,7 @@ RCT_EXPORT_METHOD(disconnectFromSSID:(NSString*)ssid
     
     if (@available(iOS 11.0, *)) {
         [[NEHotspotConfigurationManager sharedManager] getConfiguredSSIDsWithCompletionHandler:^(NSArray<NSString *> *ssids) {
-            if (ssids != nil && [ssids indexOfObject:ssid] != NSNotFound) {
-                [[NEHotspotConfigurationManager sharedManager] removeConfigurationForSSID:ssid];
-            }
+            [[NEHotspotConfigurationManager sharedManager] removeConfigurationForSSID:ssid];
             resolve(nil);
         }];
     } else {
