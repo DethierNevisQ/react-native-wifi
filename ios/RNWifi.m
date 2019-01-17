@@ -63,7 +63,7 @@ RCT_EXPORT_METHOD(disconnectFromSSID:(NSString*)ssid
     
     if (@available(iOS 11.0, *)) {
         [[NEHotspotConfigurationManager sharedManager] removeConfigurationForSSID:ssid];
-        resolve(nil)
+        resolve(nil);
     } else {
         reject(@"ios_error", @"Not supported in iOS<11.0", nil);
     }
